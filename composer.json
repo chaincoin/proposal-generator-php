@@ -1,0 +1,15 @@
+{
+    "name": "chaincoin/proposal",
+    "description": "ChainCoin Governance Proposal Generator",
+    "type": "project",
+    "require": {
+        "chaincoin/php-api": "^1.9"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Lucas Buzzo",
+            "email": "lcsbzo@gmail.com"
+        }
+    ]
+}

@@ -1,0 +1,55 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "b251ad902dfbc7294ce21ebf7385599a",
+    "packages": [
+        {
+            "name": "chaincoin/php-api",
+            "version": "v1.9.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lubuzzo/chaincoin-php-api.git",
+                "reference": "0418663c90f4059b8e834595b1b84fb684133cef"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lubuzzo/chaincoin-php-api/zipball/0418663c90f4059b8e834595b1b84fb684133cef",
+                "reference": "0418663c90f4059b8e834595b1b84fb684133cef",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "lib-curl": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "ChainCoin.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Lucas Buzzo",
+                    "email": "lcsbzo@gmail.com"
+                }
+            ],
+            "description": "Communicate with chaincoin-cli via JSON-RPC",
+            "time": "2017-12-25T11:52:05+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}
