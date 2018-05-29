@@ -25,7 +25,7 @@ if ($chaincoin->getError() == NULL) {
     for ($count = 0; $count < $max; $count++) {
       $value = (($nextSuper + ($cycle * $count)) - $blocks) * $blockTime;
       if ($network == "test")
-        $miss = date("Y/m/d h:i", strtotime("+" . $value . " Seconds"));
+        $miss = date("Y/m/d H:i", strtotime("+" . $value . " Seconds"));
       else
         $miss = date("Y/m/d", strtotime("+" . $value . " Seconds"));
       array_push($data, $miss);
