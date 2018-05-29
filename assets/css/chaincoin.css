@@ -43,3 +43,15 @@ p {
 h2 {
   margin-top: 0px;
 }
+
+input[type="submit"] {
+  color: white;
+  background-color: #616161;
+  border-color: #616161;
+}
+
+input[type="submit"]:hover {
+  color: #fff;
+  background-color: #818181;
+  border-color: #818181;
+}
