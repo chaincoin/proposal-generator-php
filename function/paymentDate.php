@@ -20,7 +20,7 @@ if ($chaincoin->getError() == NULL) {
 
     $data = array();
 
-    $max = ($network == "test") ? 99 : 25;
+    $max = ($network == "test") ? 100 : 26;
 
     for ($count = 0; $count < $max; $count++) {
       $value = (($nextSuper + ($cycle * $count)) - $blocks) * $blockTime;

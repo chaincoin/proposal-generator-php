@@ -4,6 +4,19 @@
     var superBlocksList = [];
     var validAddress;
 
+    function calcPayments() {
+
+      $("#payment-number").empty();
+      var i = parseInt($("#payment-date").val()) + 1;
+      var count = 1;
+      for (; i < ((superBlocksList.length)); i++) {
+        $("#payment-number").append("<option value="+count+">" + (count) + " Payments</option>");
+        count++;
+      }
+
+     totalAmount();
+    }
+
     function checkAddress() {
       $.get(
         "function/checkAddress.php",
@@ -28,7 +41,7 @@
 
     function totalAmount() {
       if ($("#payment-number").val() && $("#payment-amount").val() && $("#payment-date"))
-        $("#totalAmount").html( ($("#payment-number").val() * $("#payment-amount").val()) + " CHC with a final payment at " + superBlocksList[(parseInt($("#payment-number").val()) + parseInt($("#payment-date").val()))] );
+        $("#totalAmount").html( ($("#payment-number").val() * $("#payment-amount").val()) + " CHC with a final payment at " + superBlocksList[(parseInt($("#payment-number").val()) + parseInt($("#payment-date").val())) - 1] );
     }
 
     function superBlocks() {
@@ -37,17 +50,13 @@
         function(data) {
           $.each(JSON.parse(data), function(index, value) {
             superBlocksList.push(value);
-            $("#payment-date").append("<option value="+(index)+">" + value + "</option>");
-            $("#payment-number").append("<option value="+(index+1)+">" + (index+1) + " Payments</option>");
+            if ((index + 1) < JSON.parse(data).length) {
+              $("#payment-date").append("<option value="+(index)+">" + value + "</option>");
+              $("#payment-number").append("<option value="+(index+1)+">" + (index+1) + " Payments</option>");
+            }
           });
         }
     );
-
-    // Debug
-    // $.each(superBlocksList, function(index, value) {
-    //   console.log(index + " => " + Math.round((new Date(value)).getTime()/1000));
-    // });
-
     }
 
     $(document).ready(function() {
@@ -91,7 +100,7 @@
         var d = new Date();
         var seconds = Math.round(d.getTime() / 1000);
 
-        var end = new Date(superBlocksList[(parseInt($("#payment-number").val()) + parseInt($("#payment-date").val()))]);
+        var end = new Date(superBlocksList[(parseInt($("#payment-number").val()) + parseInt($("#payment-date").val())) - 1]);
 
         var endEpoch = Math.round(end.getTime() / 1000);
 

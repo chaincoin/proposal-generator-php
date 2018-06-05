@@ -50,7 +50,7 @@
                 <div class="col-md-4">
                   <div class="form-group">
                     <label for="payment-date">Payment Date</label>
-                    <select class="form-control" name="payment-date" id="payment-date" onchange="totalAmount();">
+                    <select class="form-control" name="payment-date" id="payment-date" onchange="calcPayments()">
                     </select>
                   </div>
                 </div>
