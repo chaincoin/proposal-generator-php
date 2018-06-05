@@ -108,7 +108,7 @@
 
         var startEpoch = Math.round(start.getTime() / 1000);
 
-        var textToHex = "[[\"proposal\",{\"end_epoch\":"+endEpoch+",\"name\":\""+$("#proposal-name").val()+"\",\"payment_address\":\""+$("#payment-address").val()+"\",\"payment_amount\":"+$("#payment-amount").val()+",\"start_epoch\":"+startEpoch+",\"type\":1,\"url\":\""+$("#proposal-url").val()+"\"}]]";
+        var textToHex = "[[\"proposal\",{\"end_epoch\":"+endEpoch+",\"name\":\""+$("#proposal-name").val().replace(/\s+/g, '-')+"\",\"payment_address\":\""+$("#payment-address").val()+"\",\"payment_amount\":"+$("#payment-amount").val()+",\"start_epoch\":"+startEpoch+",\"type\":1,\"url\":\""+$("#proposal-url").val()+"\"}]]";
 
         $("#textPrepare").html("gobject prepare 0 1 " + seconds + " " + a2hex(textToHex));
 
@@ -125,6 +125,9 @@
     var txid;
 
     function getConfirmations(txid) {
+      $("#voteManyS").css('display', 'none');
+      $("#voteManyF").css('display', 'none');
+      $("#waiting").css("display", "inline-block");
         txid = txid;
         window.setInterval(function(){
           if (!(confirmed)) {
@@ -149,7 +152,6 @@
     }
 
     function finish(prepare, txid) {
-      $("#submitCommand").css('display', 'block');
 
       prepare = prepare.replace("prepare", "submit");
 
@@ -159,17 +161,23 @@
     }
 
     function submitProposal(command) {
+
+      $("#waiting").css('display', 'none');
+
       $.post(
         "function/submit.php",
         {
           proposal: command
         },
         function(data) {
-          if (data == "1")
-            alert("Done!");
-          else {
-            console.log(data);
-            alert("Error. Copy your browser console content and open an issue at GitHub")
+          if (data[0] == "!") {
+            $("#voteManyS").html("<b>Success</b>Your governance hash is: " + data.replace("!", ""));
+            $("#voteManyS").css('display', 'block');
+            $("#voteManyF").css('display', 'none');
+          } else {
+            $("#voteManyF").html('<b>Error.</b> Copy the content below and open a issue at <a href="https://github.com/chaincoin/proposal">GitHub</a><br /><br />'+ data.replace("?", ""));
+            $("#voteManyF").css('display', 'block');
+            $("#voteManyS").css('display', 'none');
           }
         }
       );

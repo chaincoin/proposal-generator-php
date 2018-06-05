@@ -66,7 +66,7 @@
                 <div class="col-md-4">
                   <div class="form-group">
                     <label for="payment-amount">Payment Amount:</label>
-                    <input type="number" class="form-control" id="payment-amount" onchange="totalAmount();" required >
+                    <input type="number" step="any" min="0" class="form-control" id="payment-amount" onchange="totalAmount();" required >
                   </div>
                 </div>
 
@@ -111,8 +111,20 @@
                     <p>Paste the resulting transaction id to move to the next step.</p>
                     <input type="text" class="form-control" id="txid" placeholder="<fee-txid>" onchange="getConfirmations(this.value);">
                   </div>
-
                 </form>
+
+                <hr>
+                <center>
+                  <div class="lds-ring" id="waiting" style="display: none;">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                  </div>
+                </center>
+
+                <div class="alert alert-success" id="voteManyS" style="display: none;"><strong>Success!</strong></div>
+                <div class="alert alert-danger" id="voteManyF" style="display: none;"><strong>Fail!</strong></div>
 
             </div>
           </div>

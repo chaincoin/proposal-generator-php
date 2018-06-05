@@ -16,6 +16,7 @@ $info = $chaincoin->callMethod($command[0],
   ));
 
 if ($chaincoin->getError() == NULL)
-  echo "1";
-else
-  echo $chaincoin->getError();
+  echo "!" . $info;
+else {
+  echo "?" . $chaincoin->getError();
+}
