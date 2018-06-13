@@ -13,7 +13,7 @@
     <?php include_once 'layouts/icons.php'; ?>
     <?php include_once 'layouts/functions.php'; ?>
   </head>
-  <body>
+  <body class="bgimage">
     <?php include_once 'layouts/menu.php'; ?>
     <p style="clear: both"></p>
     <div class="container">
