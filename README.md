@@ -4,7 +4,7 @@ Chaincoin Proposal Generator
 http://www.chaincoin.org
 
 ## How to install
-`git clone https://github.com/chaincoin/proposal.git proposal`
+`git clone https://github.com/jayanh/proposal.git proposal`
 
 ## Start
 1. Enter the folder proposal
