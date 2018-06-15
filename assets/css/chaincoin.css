@@ -82,7 +82,7 @@ input[type="submit"]:hover {
 }
 
 .r01{
-width: 400px !important;
+width: 500px !important;
 float: left;
 }
 .btn{
@@ -112,4 +112,8 @@ font-weight: 600;
 .header_title{
 color: #51ba50;
 font-weight: 600;
+}
+.form-control
+{
+border: 1px solid #bce8f1 !important;
 }
