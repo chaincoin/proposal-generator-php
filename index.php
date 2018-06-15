@@ -13,11 +13,11 @@
     <?php include_once 'layouts/icons.php'; ?>
     <?php include_once 'layouts/functions.php'; ?>
   </head>
-  <body class="bgimage">
+  <body>
     <?php include_once 'layouts/menu.php'; ?>
     <p style="clear: both"></p>
     <div class="container">
-      <div class="row">
+      <div class="panel1">
         <div class="col-md-8 col-lg-8 col-sm-12 col-xs-12">
 
           <div class="panel panel-default" id="prepare">
@@ -50,7 +50,7 @@
                 <div class="col-md-4">
                   <div class="form-group">
                     <label for="payment-date">Payment Date</label>
-                    <select class="form-control" name="payment-date" id="payment-date" onchange="calcPayments()">
+                    <select class="form-control" name="payment-date" id="payment-date" onchange="totalAmount();">
                     </select>
                   </div>
                 </div>
@@ -66,7 +66,7 @@
                 <div class="col-md-4">
                   <div class="form-group">
                     <label for="payment-amount">Payment Amount:</label>
-                    <input type="number" step="any" min="0" class="form-control" id="payment-amount" onchange="totalAmount();" required >
+                    <input type="number" class="form-control" id="payment-amount" onchange="totalAmount();" required >
                   </div>
                 </div>
 
@@ -80,15 +80,15 @@
                     </div>
                   </div>
                 </div>
-
                 <div class="col-md-12">
+                <div class="r01">
                   <p><b>Total Amount:</b> <span id="totalAmount">0 CHC</span></p>
                 </div>
 
-                <div class="col-md-12">
+                <div >
                   <input type="submit" class="btn btn-primary btn-lg btn-block" name="submit" value="Create Proposal">
                 </div>
-
+                </div>
               </form>
             </div>
           </div>
@@ -111,28 +111,18 @@
                     <p>Paste the resulting transaction id to move to the next step.</p>
                     <input type="text" class="form-control" id="txid" placeholder="<fee-txid>" onchange="getConfirmations(this.value);">
                   </div>
+
                 </form>
-
-                <hr>
-                <center>
-                  <div class="lds-ring" id="waiting" style="display: none;">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                  </div>
-                </center>
-
-                <div class="alert alert-success" id="voteManyS" style="display: none;"><strong>Success!</strong></div>
-                <div class="alert alert-danger" id="voteManyF" style="display: none;"><strong>Fail!</strong></div>
 
             </div>
           </div>
         </div>
 
         <div class="col-md-3 col-md-offset-1 col-lg-3 col-lg-offset-1 col-sm-12 col-xs-12">
-          <h2>ChainCoin Budget Proposal</h2>
-
+          <div >
+          <h2 class="header_title">ChainCoin</h2>
+          <h2 class="header_title">Budget Proposal</h2>
+          </div>
           <p>Generate budget proposal commands you can copy/paste into your wallet to prepare a budget proposal and submit it to the network.</p>
 
           <p>
