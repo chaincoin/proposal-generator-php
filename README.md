@@ -14,11 +14,11 @@ http://www.chaincoin.org
  - curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
  
 3. Update the file vendor/chaincoin/php-api/settings.php with the ip, port, user e password of your rpc-wallet;
-  example: 
-  'host' => "127.0.0.1",
-  'port' => "21995",
-  'user' => "user",
-  'pass' => "password"
+Example:
+   'host' => "127.0.0.1",
+   'port' => "21995",
+   'user' => "user",
+   'pass' => "password"
 4. start service: under proposal folder
    php -S xxx.xxx.xx.xxxx:3000 ( xxx is ip and 3000 is port, you can change the port)
 
