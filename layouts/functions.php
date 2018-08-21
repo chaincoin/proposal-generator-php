@@ -100,7 +100,7 @@
         var d = new Date();
         var seconds = Math.round(d.getTime() / 1000);
 
-        var end = new Date(superBlocksList[(parseInt($("#payment-number").val()) + parseInt($("#payment-date").val())) - 1]);
+        var end = new Date(superBlocksList[(parseInt($("#payment-number").val()) + parseInt($("#payment-date").val()))]);
 
         var endEpoch = Math.round(end.getTime() / 1000);
 

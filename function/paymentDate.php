@@ -16,8 +16,6 @@ if ($chaincoin->getError() == NULL) {
     $nextSuper = $info['nextsuperblock'];
     $cycle = $info['superblockcycle'];
 
-    $diff = $nextSuper - $blocks;
-
     $data = array();
 
     $max = ($network == "test") ? 100 : 26;
