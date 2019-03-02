@@ -10,7 +10,9 @@ if ($chaincoin->getError() == NULL) {
   $blocks = $info['blocks'];
   $network = $info['chain'];
 
-  $info = $chaincoin->callMethod('getgovernanceinfo');
+  $info = $chaincoin->callMethod('getfundinginfo');
+  if ($chaincoin->getError() == "Method not found")
+    $info = $chaincoin->callMethod('getgovernanceinfo');
 
   if ($chaincoin->getError() == NULL) {
     $nextSuper = $info['nextsuperblock'];
