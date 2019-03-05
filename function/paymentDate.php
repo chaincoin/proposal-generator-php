@@ -35,6 +35,7 @@ if ($chaincoin->getError() == NULL) {
     }
     array_push($data, $funding);
 
+
     echo json_encode($data);
 
   } else {
