@@ -9,8 +9,13 @@ $info = $chaincoin->callMethod('getblockchaininfo');
 if ($chaincoin->getError() == NULL) {
   $blocks = $info['blocks'];
   $network = $info['chain'];
+  $funding = true;
 
-  $info = $chaincoin->callMethod('getgovernanceinfo');
+  $info = $chaincoin->callMethod('getfundinginfo');
+  if ($chaincoin->getError() == "Method not found") {
+    $info = $chaincoin->callMethod('getgovernanceinfo');
+    $funding = false;
+  }
 
   if ($chaincoin->getError() == NULL) {
     $nextSuper = $info['nextsuperblock'];
@@ -28,6 +33,7 @@ if ($chaincoin->getError() == NULL) {
         $miss = date("Y/m/d", strtotime("+" . $value . " Seconds"));
       array_push($data, $miss);
     }
+    array_push($data, $funding);
 
     echo json_encode($data);
 

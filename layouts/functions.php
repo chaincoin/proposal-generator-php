@@ -3,6 +3,7 @@
     jQuery.ajaxSetup({async:false});
     var superBlocksList = [];
     var validAddress;
+    var funding = false;
 
     function calcPayments() {
 
@@ -55,6 +56,9 @@
               $("#payment-number").append("<option value="+(index+1)+">" + (index+1) + " Payments</option>");
             }
           });
+          if (superBlocksList[superBlocksList.length-1]) {
+            funding = true;
+          }
         }
     );
     }
@@ -110,7 +114,10 @@
 
         var textToHex = "[[\"proposal\",{\"end_epoch\":"+endEpoch+",\"name\":\""+$("#proposal-name").val().replace(/\s+/g, '-')+"\",\"payment_address\":\""+$("#payment-address").val()+"\",\"payment_amount\":"+$("#payment-amount").val()+",\"start_epoch\":"+startEpoch+",\"type\":1,\"url\":\""+$("#proposal-url").val()+"\"}]]";
 
-        $("#textPrepare").html("gobject prepare 0 1 " + seconds + " " + a2hex(textToHex));
+        if (funding)
+          $("#textPrepare").html("prepareproposal 0 1 " + seconds + " " + a2hex(textToHex));
+        else
+          $("#textPrepare").html("gobject prepare 0 1 " + seconds + " " + a2hex(textToHex));
 
         textAreaAdjust(document.getElementById('textPrepare'));
 
