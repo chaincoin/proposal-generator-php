@@ -1,9 +1,6 @@
 
-Chaincoin Proposal Generator
+[PHP] Chaincoin Proposal Generator
 =================
-### Current instances
- - [Mainnet](https://proposal.chaincoin.org/)
- - [Testnet](https://test-proposal.chaincoin.org/)
 
 ## How to install
 `git clone https://github.com/chaincoin/proposal.git proposal`
