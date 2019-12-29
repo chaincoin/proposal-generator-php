@@ -3,7 +3,7 @@
     <div class="navbar-header">
 
       <a class="navbar-brand" href="./">
-        <img alt="Chaincoin - Instante Secure Transaction" src="assets/img/logo.png" style="width: 52px; padding: 3px 3px 3px 3px;">
+        <img alt="Chaincoin - Instante Secure Transaction" src="assets/img/logo.png" style="width: 300px;height:52px;">
       </a>
 
     </div>
